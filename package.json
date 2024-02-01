@@ -1,0 +1,83 @@
+{
+  "name": "LuckyMemo",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "./",
+  "main": "main.js",
+  "dependencies": {
+    "@ant-design/icons": "^5.2.6",
+    "@electron/remote": "^2.1.2",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/user-event": "^13.5.0",
+    "antd": "^5.13.2",
+    "dayjs": "^1.11.10",
+    "electron-store": "^8.1.0",
+    "node-notifier": "^10.0.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.21.3",
+    "react-scripts": "5.0.1",
+    "styled-components": "^6.1.8",
+    "electron-packager": "^17.1.2",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "set BROWSER=none&&react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron-start": "electron . dev",
+    "electron": "electron .",
+    "dev": "npm start && electron-start",
+    "package": "electron-packager . LuckyMemo --win --arch=x64 --out=../release/1   --electron-version=28.1.4 --overwrite --ignore=\"(src*|.gitignore|.idea|README.md|node_modules*)\"",
+    "builder": "electron-builder"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "electron-builder": "^24.9.1",
+    "electron": "^28.1.4"
+  },
+  "build": {
+    "appId": "com.luckymemo.app",
+    "productName": "LuckyMemo",
+    "directories": {
+      "buildResources": "build",
+      "output": "release"
+    },
+    "nsis": {
+      "oneClick": false,
+      "language": "2052",
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
+    },
+    "files": [
+      "build/**/*",
+      "./main.js",
+      "./package.json",
+      "./preload.js"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "public/Cat.png"
+    },
+    "extends": null
+  }
+}
